@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private int damageAmount;
-    [SerializeField] private float attackRadius;
-    [SerializeField] private GameObject attackPoint;
     [SerializeField] private float rechargeTime;
 
-    private float previousAttack;
+    public int damageAmount;
+    public float attackRadius;
+    public Vector3 attackPoint;
+
+    private float previousAttack = 0;
 
     private void Update()
     {

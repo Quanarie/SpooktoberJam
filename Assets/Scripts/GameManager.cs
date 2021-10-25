@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public PlayerInteraction playerInteraction;
+    public PlayerAttack playerAttack;
 
     private void Awake()
     {
@@ -24,5 +25,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         playerInteraction = player.GetComponent<PlayerInteraction>();
+        playerAttack = player.GetComponent<PlayerAttack>();
     }
 }
