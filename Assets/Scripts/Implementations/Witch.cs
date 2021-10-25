@@ -18,6 +18,7 @@ public class Witch : WitchState
 
     public void ChangeState()
     {
-        GameManager.Instance.player.GetComponent<PlayerInteraction>().state = new Cat();
+        GameManager.Instance.playerInteraction.state = new Cat();
+        GameManager.Instance.player.GetComponent<SpriteRenderer>().color = Color.black;
     }
 }
