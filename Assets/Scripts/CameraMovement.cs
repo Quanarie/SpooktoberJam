@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float boundX = 0.15f;
-    public float boundY = 0.05f;
+    [SerializeField] private float boundX = 0.15f;
+    [SerializeField] private float boundY = 0.05f;
 
     private Transform lookAt;
 
