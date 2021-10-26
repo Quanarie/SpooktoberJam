@@ -7,6 +7,7 @@ public class EnemyMovement : Mover
     [SerializeField] private float chasingDistance;
 
     private Vector3 startingPosition;
+    private bool stopped = false;
 
     private void Start()
     {
@@ -15,13 +16,21 @@ public class EnemyMovement : Mover
 
     private void Update()
     {
-        if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) < chasingDistance)
+        if (!stopped)
         {
-            UpdateMotor((GameManager.Instance.player.transform.position - transform.position).normalized);
-        }
-        else if (Vector3.Distance(startingPosition, transform.position) < 0.01f)
-        {
-            UpdateMotor((startingPosition - transform.position).normalized);
-        }
+            if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) < chasingDistance)
+            {
+                UpdateMotor((GameManager.Instance.player.transform.position - transform.position).normalized);
+            }
+            else if (Vector3.Distance(startingPosition, transform.position) < 0.01f)
+            {
+                UpdateMotor((startingPosition - transform.position).normalized);
+            }
+        }   
+    }
+
+    public void Stopped(bool s)
+    {
+        stopped = s;
     }
 }

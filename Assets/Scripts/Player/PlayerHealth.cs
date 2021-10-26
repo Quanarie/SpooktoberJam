@@ -6,6 +6,7 @@ public class PlayerHealth : Health
 {
     protected override void Death()
     {
+        Debug.Log("Dying");
         //GameManager.RestartGame();
     }
 }
