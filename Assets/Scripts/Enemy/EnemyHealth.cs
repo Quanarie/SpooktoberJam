@@ -6,6 +6,12 @@ public class EnemyHealth : Health
 {
     protected override void Death()
     {
-        Destroy(gameObject);
+        GetComponent<SpriteRenderer>().color = Color.grey;
+        GetComponent<EnemyAttack>().enabled = false;
+        GetComponent<EnemyMovement>().enabled = false;
+        GetComponent<EnemyHealth>().enabled = false;
+
+        gameObject.AddComponent(typeof(EnemyCanBeDrained));
+        GetComponent<EnemyCanBeDrained>().healthToHeal = GetComponent<EnemyHealth>().GetMaxHp() * 0.1f;
     }
 }

@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rechargeTime: 1
-  damageAmount: 1
+  damageAmount: 10
   attackRadius: 0.5
   attackPoint: {x: 0, y: 0, z: 0}
   pushForce: 10
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76751cd02e0e3ac4ba5eba3557b43694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  damageAmount: 5
   rechargeTime: 2
   pushForce: 1
   attackDistance: 0.2
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd671d18f3d45f4e8436e0cdc62de46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 20
 --- !u!61 &1916972150
 BoxCollider2D:
   m_ObjectHideFlags: 0

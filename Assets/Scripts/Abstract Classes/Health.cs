@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHp;
+    [SerializeField] protected float maxHp;
 
-    private int currentHp;
+    protected float currentHp;
 
     private Color prevcolor;
 
@@ -15,7 +15,7 @@ public abstract class Health : MonoBehaviour
         currentHp = maxHp;
     }
 
-    public void ReceiveDamage(int damage, Vector3 pushDirection, float pushForce)
+    public void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce)
     {
         GetComponent<Mover>().pushDirection = pushDirection.normalized * pushForce;
 
@@ -36,6 +36,8 @@ public abstract class Health : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().color = prevcolor;
     }
+
+    public float GetMaxHp() => maxHp;
 
     protected virtual void Death() { }
 }
