@@ -6,7 +6,7 @@ public class Cat : WitchState
 {
     private const float decreaseOfHealthCoefficient = 0.15f;
 
-    public void Attack()
+    public override void Attack()
     {
         EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusClaw);
         if (enemy == null)
@@ -21,12 +21,13 @@ public class Cat : WitchState
 
     public void PickUp(Vector3 center, float radius, LayerMask layerMask) { Debug.Log("Pick up called"); }
 
-    public void Transform()
+
+    public override void Transform()
     {
         throw new System.NotImplementedException();
     }
 
-    public void ChangeState()
+    public override void ChangeState()
     {
         GameManager.Instance.playerInteraction.state = new Witch();
         GameManager.Instance.player.GetComponent<SpriteRenderer>().color = Color.white;

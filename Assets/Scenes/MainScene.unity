@@ -253,10 +253,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rechargeTime: 1
-  damageAmount: 10
-  attackRadius: 0.5
+  damageAmountClaw: 10
+  damageAmountBlast: 2
+  attackRadiusClaw: 0.5
+  attackRadiusBlast: 2
   attackPoint: {x: 0, y: 0, z: 0}
-  pushForce: 10
+  pushForce: 0
 --- !u!114 &430790018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ Transform:
   m_GameObject: {fileID: 656705668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.333333, y: 3.333333, z: 1}
+  m_LocalScale: {x: 3.3333328, y: 3.3333328, z: 1}
   m_Children: []
   m_Father: {fileID: 430790014}
   m_RootOrder: 0
@@ -792,6 +794,7 @@ MonoBehaviour:
   player: {fileID: 430790012}
   playerInteraction: {fileID: 0}
   playerAttack: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!4 &2061057011
 Transform:
   m_ObjectHideFlags: 0

@@ -6,8 +6,10 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float rechargeTime;
 
-    public float damageAmount;
-    public float attackRadius;
+    public float damageAmountClaw;
+    public float damageAmountBlast;
+    public float attackRadiusClaw;
+    public float attackRadiusBlast;
     public Vector3 attackPoint;
     public float pushForce;
 

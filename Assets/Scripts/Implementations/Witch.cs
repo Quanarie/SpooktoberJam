@@ -6,8 +6,8 @@ using UnityEngine;
 public class Witch : WitchState
 {
     int potionsCounter = 0;
-
-    public void Attack() 
+    
+    public override void Attack()
     {
         EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusBlast);
         if (enemy == null)
@@ -43,12 +43,12 @@ public class Witch : WitchState
         
     }
 
-    public void Transform()
+    public override void Transform()
     {
         throw new System.NotImplementedException();
     }
 
-    public void ChangeState()
+    public override void ChangeState()
     {
         GameManager.Instance.playerInteraction.state = new Cat();
         GameManager.Instance.player.GetComponent<SpriteRenderer>().color = Color.black;
