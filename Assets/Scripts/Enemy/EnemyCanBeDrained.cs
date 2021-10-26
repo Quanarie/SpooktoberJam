@@ -12,7 +12,7 @@ public class EnemyCanBeDrained : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         GameManager.Instance.player.GetComponent<Rigidbody2D>().WakeUp();
-        if (collision.TryGetComponent(out PlayerHealth _))
+        if (collision.TryGetComponent(out PlayerHealth _) && GameManager.Instance.playerInteraction.state.GetType() == typeof(Witch))
         {
             if (Input.GetKey(KeyCode.Mouse1))
             {
@@ -25,7 +25,7 @@ public class EnemyCanBeDrained : MonoBehaviour
             }
             if (currentClickTime >= clickTime)
             {
-                GameManager.Instance.player.GetComponent<PlayerHealth>().Heal(healthToHeal);
+                GameManager.Instance.playerHealth.Heal(healthToHeal);
                 Destroy(gameObject);
             }
         }
