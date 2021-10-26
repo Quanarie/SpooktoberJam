@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Witch : WitchState
@@ -18,25 +16,27 @@ public class Witch : WitchState
                             GameManager.Instance.playerAttack.pushForce);
     }
 
-    public override void PickUp(Vector3 center, float radius, LayerMask layerMask)
+    public override void PickUp(Vector3 player, float radius, LayerMask layerMask)
     {
         if (layerMask.value == -1)
-            Debug.Log("layermask doesn't exist");
+            Debug.LogError("layermask doesn't exist");
 
-        BaseItem[] items = UnityEngine.Object.FindObjectsOfType<BaseItem>(); // I don't understand how layer mask work, but it doesn't work as a third param
-        foreach (var item in items) { 
-            try
+        Collider2D[] items = Physics2D.OverlapCircleAll(player, radius); // I don't understand how layer mask work, but it doesn't work as a third param
+        BaseItem savedItem = items[0].GetComponent<BaseItem>();
+        float minDistance = float.MaxValue;
+        foreach (var item in items)
+        {
+            float distance = Vector3.Distance(player, item.transform.position);
+            if (distance < minDistance)
             {
-                item.DestroySelf();
-                potionsCounter++;
+                minDistance = distance;
+                savedItem = item.GetComponent<BaseItem>();
             }
-            catch (Exception e)
-            {
-                Debug.LogError($"Unable to destroy {item.name}, error: {e}");
-            }
-            Debug.Log(potionsCounter);
-            return; // I use return here because we want to pick up only the first potion
-            }
+        }
+        // savedItem is the searched object
+        savedItem.DestroySelf();
+        potionsCounter++;
+        return;
         }
 
     public override void Transform()
