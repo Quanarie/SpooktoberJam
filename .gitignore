@@ -459,3 +459,5 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,visualstudio
 Library/ArtifactDB
+Library/ArtifactDB
+Library/ArtifactDB-lock
