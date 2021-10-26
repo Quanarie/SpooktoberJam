@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private int damageAmount;
-    [SerializeField] private float attackRadius;
     [SerializeField] private float rechargeTime;
+    [SerializeField] private float pushForce;
+
+    public float attackDistance;
 
     private float previousAttack;
 
@@ -21,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (Time.time - previousAttack >= rechargeTime)
         {
-            if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackRadius)
+            if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackDistance)
             {
                 Attack();
                 previousAttack = Time.time;
@@ -31,6 +33,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        playerHealth.ReceiveDamage(damageAmount);
+        playerHealth.ReceiveDamage(damageAmount, GameManager.Instance.player.transform.position - transform.position, pushForce);
     }
 }

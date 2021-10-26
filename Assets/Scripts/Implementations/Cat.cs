@@ -10,7 +10,9 @@ public class Cat : WitchState
         if (enemy == null)
             return;
 
-        enemy.GetComponent<EnemyHealth>().ReceiveDamage(GameManager.Instance.playerAttack.damageAmount);
+        enemy.GetComponent<EnemyHealth>().ReceiveDamage(GameManager.Instance.playerAttack.damageAmount,
+                                                        enemy.transform.position - GameManager.Instance.player.transform.position,
+                                                        GameManager.Instance.playerAttack.pushForce);
     }
 
     public void PickUp() { }
@@ -30,7 +32,6 @@ public class Cat : WitchState
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(GameManager.Instance.playerAttack.attackPoint,
                                                        GameManager.Instance.playerAttack.attackRadius);
-
         colliders = DeleteNonEnemyObjects(colliders);
 
         if (colliders.Length == 0)

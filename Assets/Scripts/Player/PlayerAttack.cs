@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public int damageAmount;
     public float attackRadius;
     public Vector3 attackPoint;
+    public float pushForce;
 
     private float previousAttack = 0;
 
