@@ -6,13 +6,13 @@ public class Cat : WitchState
 {
     public void Attack()
     {
-        Collider2D enemy = FindClosestEnemy();
+        EnemyHealth enemy = FindClosestEnemyInAttackRange();
         if (enemy == null)
             return;
 
-        enemy.GetComponent<EnemyHealth>().ReceiveDamage(GameManager.Instance.playerAttack.damageAmount,
-                                                        enemy.transform.position - GameManager.Instance.player.transform.position,
-                                                        GameManager.Instance.playerAttack.pushForce);
+        enemy.ReceiveDamage(GameManager.Instance.playerAttack.damageAmount,
+                            enemy.transform.position - GameManager.Instance.player.transform.position,
+                            GameManager.Instance.playerAttack.pushForce);
     }
 
     public void PickUp() { }
@@ -28,52 +28,31 @@ public class Cat : WitchState
         GameManager.Instance.player.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    private Collider2D FindClosestEnemy()
+    private EnemyHealth FindClosestEnemyInAttackRange()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(GameManager.Instance.playerAttack.attackPoint,
-                                                       GameManager.Instance.playerAttack.attackRadius);
-        colliders = DeleteNonEnemyObjects(colliders);
+        EnemyHealth[] enemies = Object.FindObjectsOfType<EnemyHealth>();
 
-        if (colliders.Length == 0)
+        if (enemies.Length == 0)
             return null;
 
         int closestEnemy = 0;
 
-        for (int i = 1; i < colliders.Length; i++)
+        for (int i = 1; i < enemies.Length; i++)
         {
-            if (Vector3.Distance(GameManager.Instance.player.transform.position, colliders[i].transform.position) <
-                Vector3.Distance(GameManager.Instance.player.transform.position, colliders[closestEnemy].transform.position))
+            if (Vector3.Distance(GameManager.Instance.player.transform.position, enemies[i].transform.position) <
+                Vector3.Distance(GameManager.Instance.player.transform.position, enemies[closestEnemy].transform.position))
             {
                 closestEnemy = i;
             }
         }
 
-        return colliders[closestEnemy];
-    }
+        Vector3 playerPos = GameManager.Instance.player.transform.position;
+        Vector3 enemyPos = enemies[closestEnemy].gameObject.transform.position;
+        float attackRadius = GameManager.Instance.playerAttack.attackRadius;
 
-    private Collider2D[] DeleteNonEnemyObjects(Collider2D[] colliders)
-    {
-        int amountOfEnemies = 0;
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].TryGetComponent(out EnemyHealth _))
-            {
-                amountOfEnemies++;
-            }
-        }
+        if (Vector3.Distance(playerPos, enemyPos) > attackRadius)
+            return null;
 
-        Collider2D[] enemies = new Collider2D[amountOfEnemies];
-
-        int enemiesIndex = 0;
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].TryGetComponent(out EnemyHealth _))
-            {
-                enemies[enemiesIndex] = colliders[i];
-                enemiesIndex++;
-            }
-        }
-
-        return enemies;
+        return enemies[closestEnemy];
     }
 }
