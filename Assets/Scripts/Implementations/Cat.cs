@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Cat : WitchState
 {
+    private const float decreaseOfHealthCoefficient = 0.15f;
+
     public void Attack()
     {
         EnemyHealth enemy = FindClosestEnemyInAttackRange();
@@ -13,9 +15,11 @@ public class Cat : WitchState
         enemy.ReceiveDamage(GameManager.Instance.playerAttack.damageAmount,
                             enemy.transform.position - GameManager.Instance.player.transform.position,
                             GameManager.Instance.playerAttack.pushForce);
+
+        GameManager.Instance.playerHealth.ReceiveDamage(GameManager.Instance.playerHealth.GetMaxHp() * decreaseOfHealthCoefficient, Vector3.zero, 0f);
     }
 
-    public void PickUp() { }
+    public void PickUp(Vector3 center, float radius, LayerMask layerMask) { Debug.Log("Pick up called"); }
 
     public void Transform()
     {
