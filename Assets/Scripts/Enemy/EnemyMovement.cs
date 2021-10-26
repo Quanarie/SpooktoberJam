@@ -16,7 +16,10 @@ public class EnemyMovement : Mover
     private void Update()
     {
         if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) < GetComponent<EnemyAttack>().attackDistance)
+        {
+            UpdateMotor(Vector3.zero);
             return;
+        }
 
         if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) < chasingDistance)
         {

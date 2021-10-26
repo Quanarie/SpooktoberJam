@@ -7,20 +7,17 @@ public abstract class Health : MonoBehaviour
     [SerializeField] private int maxHp;
 
     private int currentHp;
-    private Rigidbody2D rigidbody2d;
 
     private Color prevcolor;
 
     private void Start()
     {
         currentHp = maxHp;
-        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     public void ReceiveDamage(int damage, Vector3 pushDirection, float pushForce)
     {
-        pushDirection = pushDirection.normalized * pushForce;
-        rigidbody2d.AddForce(pushDirection, ForceMode2D.Impulse);
+        GetComponent<Mover>().pushDirection = pushDirection.normalized * pushForce;
 
         currentHp -= damage;
         if (currentHp <= 0)
@@ -32,7 +29,6 @@ public abstract class Health : MonoBehaviour
         prevcolor = GetComponent<SpriteRenderer>().color;
         GetComponent<SpriteRenderer>().color = Color.red;
         StartCoroutine(ChangeColor());
-
     }
 
     IEnumerator ChangeColor()
