@@ -12,13 +12,6 @@ public class EnemyAttack : MonoBehaviour
 
     private float previousAttack;
 
-    private PlayerHealth playerHealth;
-
-    private void Start()
-    {
-        playerHealth = GameManager.Instance.player.GetComponent<PlayerHealth>();
-    }
-
     private void Update()
     {
         if (Time.time - previousAttack >= rechargeTime)
@@ -33,6 +26,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        playerHealth.ReceiveDamage(damageAmount, GameManager.Instance.player.transform.position - transform.position, pushForce);
+        GameManager.Instance.playerHealth.ReceiveDamage(damageAmount, GameManager.Instance.player.transform.position - transform.position, pushForce);
     }
 }
