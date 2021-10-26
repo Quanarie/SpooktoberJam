@@ -19,7 +19,8 @@ public class Cat : WitchState
         GameManager.Instance.playerHealth.ReceiveDamage(GameManager.Instance.playerHealth.GetMaxHp() * decreaseOfHealthCoefficient, Vector3.zero, 0f);
     }
 
-    public override void PickUp() { }
+    public void PickUp(Vector3 center, float radius, LayerMask layerMask) { Debug.Log("Pick up called"); }
+
 
     public override void Transform()
     {

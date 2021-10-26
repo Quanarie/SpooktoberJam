@@ -17,9 +17,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             state.ChangeState();
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+            PickUp();
     }
 
     public void Attack() => state.Attack();
-    public void PickUp() => state.PickUp();
+    public void PickUp() => state.PickUp(this.transform.position, .5f, LayerMask.NameToLayer("Potion"));
     public void Transform() => state.Transform();
 }
