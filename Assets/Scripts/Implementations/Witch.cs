@@ -7,7 +7,16 @@ public class Witch : WitchState
 {
     int potionsCounter = 0;
 
-    public void Attack() { }
+    public void Attack() 
+    {
+        EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusBlast);
+        if (enemy == null)
+            return;
+
+        enemy.ReceiveDamage(GameManager.Instance.playerAttack.damageAmountBlast,
+                            enemy.transform.position - GameManager.Instance.player.transform.position,
+                            GameManager.Instance.playerAttack.pushForce);
+    }
 
     public void PickUp(Vector3 center, float radius, LayerMask layerMask)
     {
