@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Witch : WitchState
 {
-    int potionsCounter = 0;
+    private int potionsCounter = 0;
     
     public override void Attack()
     {
@@ -16,28 +16,25 @@ public class Witch : WitchState
                             GameManager.Instance.playerAttack.pushForce);
     }
 
-    public override void PickUp(Vector3 player, float radius, LayerMask layerMask)
+    public override void PickUp(Vector3 playerPosition, float radius, LayerMask layerMask)
     {
-        if (layerMask.value == -1)
-            Debug.LogError("layermask doesn't exist");
+        Collider2D[] items = Physics2D.OverlapCircleAll(playerPosition, radius, layerMask);
 
-        Collider2D[] items = Physics2D.OverlapCircleAll(player, radius); // I don't understand how layer mask work, but it doesn't work as a third param
-        BaseItem savedItem = items[0].GetComponent<BaseItem>();
-        float minDistance = float.MaxValue;
-        foreach (var item in items)
+        if (items.Length == 0)
+            return;
+
+        int nearestItemIndex = 0;
+        for (int i = 1; i < items.Length; i++)
         {
-            float distance = Vector3.Distance(player, item.transform.position);
-            if (distance < minDistance)
+            if (Vector3.Distance(playerPosition, items[i].transform.position) < Vector3.Distance(playerPosition, items[nearestItemIndex].transform.position))
             {
-                minDistance = distance;
-                savedItem = item.GetComponent<BaseItem>();
+                nearestItemIndex = i;
             }
         }
-        // savedItem is the searched object
-        savedItem.DestroySelf();
+
+        items[nearestItemIndex].GetComponent<BaseItem>().DestroySelf();
         potionsCounter++;
-        return;
-        }
+    }
 
     public override void Transform()
     {

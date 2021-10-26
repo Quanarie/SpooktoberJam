@@ -17,7 +17,6 @@ public class EnemyCanBeDrained : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse1))
             {
                 currentClickTime += Time.deltaTime;
-                print(currentClickTime);
             }
             else
             {

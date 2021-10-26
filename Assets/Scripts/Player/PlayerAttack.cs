@@ -6,6 +6,8 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float rechargeTime;
 
+    private Animator animator;
+
     public float damageAmountClaw;
     public float damageAmountBlast;
     public float attackRadiusClaw;
@@ -14,6 +16,11 @@ public class PlayerAttack : MonoBehaviour
     public float pushForce;
 
     private float previousAttack = 0;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -30,5 +37,7 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         GameManager.Instance.playerInteraction.Attack();
+
+        animator.SetTrigger("attack");
     }
 }

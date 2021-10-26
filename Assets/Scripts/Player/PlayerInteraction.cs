@@ -23,6 +23,6 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     public void Attack() => state.Attack();
-    public void PickUp() => state.PickUp(this.transform.position, .5f, LayerMask.NameToLayer("Potion"));
+    public void PickUp() => state.PickUp(transform.position, .5f, LayerMask.NameToLayer("BaseItems"));
     public void Transform() => state.Transform();
 }
