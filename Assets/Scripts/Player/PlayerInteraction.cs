@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Start()
     {
         state = new Witch();
+        GameManager.Instance.playerAnimator.runtimeAnimatorController = GameManager.Instance.witchAnimator;
     }
 
     private void Update()

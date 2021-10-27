@@ -47,3 +47,6 @@ MonoBehaviour:
   playerInteraction: {fileID: 0}
   playerAttack: {fileID: 0}
   playerHealth: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  witchAnimator: {fileID: 9100000, guid: 03d0ed30d9dce8744b63699d8adbc3c0, type: 2}
+  catAnimator: {fileID: 9100000, guid: 7901bcf5b655a844daeddcfc1c7a6778, type: 2}

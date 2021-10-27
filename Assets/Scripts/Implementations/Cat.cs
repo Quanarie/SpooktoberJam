@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cat : WitchState
 {
-    private const float decreaseOfHealthCoefficient = 0.15f;
+    private const float decreaseOfHealthCoefficient = 0.1f;
 
     public override void Attack()
     {
@@ -30,6 +30,6 @@ public class Cat : WitchState
     public override void ChangeState()
     {
         GameManager.Instance.playerInteraction.state = new Witch();
-        GameManager.Instance.player.GetComponent<SpriteRenderer>().color = Color.white;
+        GameManager.Instance.playerAnimator.runtimeAnimatorController = GameManager.Instance.witchAnimator;
     }
 }

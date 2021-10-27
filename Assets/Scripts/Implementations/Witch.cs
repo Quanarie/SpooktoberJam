@@ -48,6 +48,6 @@ public class Witch : WitchState
     public override void ChangeState()
     {
         GameManager.Instance.playerInteraction.state = new Cat();
-        GameManager.Instance.player.GetComponent<SpriteRenderer>().color = Color.black;
+        GameManager.Instance.playerAnimator.runtimeAnimatorController = GameManager.Instance.catAnimator;
     }
 }
