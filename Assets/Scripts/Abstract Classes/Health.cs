@@ -8,11 +8,12 @@ public abstract class Health : MonoBehaviour
 
     protected float currentHp;
 
-    private Color prevcolor;
+    private Animator animator;
 
     private void Start()
     {
         currentHp = maxHp;
+        animator = GetComponent<Animator>();
     }
 
     public void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce)
@@ -26,15 +27,8 @@ public abstract class Health : MonoBehaviour
             Death();
         }
 
-        prevcolor = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = Color.red;
-        StartCoroutine(ChangeColor());
-    }
-
-    IEnumerator ChangeColor()
-    {
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<SpriteRenderer>().color = prevcolor;
+        if (animator != null)
+            animator.SetTrigger("damage");
     }
 
     public float GetMaxHp() => maxHp;

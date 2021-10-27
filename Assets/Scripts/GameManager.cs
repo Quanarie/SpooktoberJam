@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerInteraction playerInteraction;
     public PlayerAttack playerAttack;
     public PlayerHealth playerHealth;
+    public Animator playerAnimator;
 
     private void Awake()
     {
@@ -28,5 +29,6 @@ public class GameManager : MonoBehaviour
         playerInteraction = player.GetComponent<PlayerInteraction>();
         playerAttack = player.GetComponent<PlayerAttack>();
         playerHealth = player.GetComponent<PlayerHealth>();
+        playerAnimator = player.GetComponent<Animator>();
     }
 }

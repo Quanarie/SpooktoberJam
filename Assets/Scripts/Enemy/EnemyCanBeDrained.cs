@@ -17,15 +17,22 @@ public class EnemyCanBeDrained : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse1))
             {
                 currentClickTime += Time.deltaTime;
+
+                GameManager.Instance.playerAnimator.SetBool("isDraining", true);
             }
             else
             {
                 currentClickTime = 0f;
+
+                GameManager.Instance.playerAnimator.SetBool("isDraining", false);
             }
             if (currentClickTime >= clickTime)
             {
+                GameManager.Instance.playerAnimator.SetBool("isDraining", false);
+
                 GameManager.Instance.playerHealth.Heal(healthToHeal);
                 Destroy(gameObject);
+
             }
         }
     }

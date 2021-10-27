@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Health
 {
+    [SerializeField] private AnimationClip deathAnimation;
+
     public void Heal(float toHeal)
     {
         if (toHeal > 0) currentHp += toHeal;
@@ -14,6 +16,14 @@ public class PlayerHealth : Health
 
     protected override void Death()
     {
+        GameManager.Instance.playerAnimator.SetTrigger("death");
+        StartCoroutine(WaitForDeathAnimationToEnd());
+    }
+
+    IEnumerator WaitForDeathAnimationToEnd()
+    {
+        yield return new WaitForSeconds(deathAnimation.length);
+
         SceneManager.LoadScene(0);
     }
 }

@@ -355,6 +355,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4795640396624209329, guid: c4243abee41000e43958f8b7971abfca, type: 3}
+      propertyPath: maxHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4795640396624209333, guid: c4243abee41000e43958f8b7971abfca, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -477,21 +481,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7685072211529872655, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
-      propertyPath: m_Size.x
-      value: 0.21576974
-      objectReference: {fileID: 0}
-    - target: {fileID: 7685072211529872655, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
-      propertyPath: m_Size.y
-      value: 0.28103083
-      objectReference: {fileID: 0}
-    - target: {fileID: 7685072211529872655, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0039607435
-      objectReference: {fileID: 0}
-    - target: {fileID: 7685072211529872655, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.16239116
+    - target: {fileID: 7685072211529872654, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
+      propertyPath: maxHp
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7685072211529872880, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
       propertyPath: m_Name
