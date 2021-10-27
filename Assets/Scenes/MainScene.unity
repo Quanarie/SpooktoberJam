@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: pushForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7685072211529872653, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
+      propertyPath: rechargeTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7685072211529872880, guid: 444bf7f833bcaa44bbe4b2995ba180be, type: 3}
       propertyPath: m_Name
       value: Player

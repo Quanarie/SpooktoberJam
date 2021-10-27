@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Witch : WitchState
 {
+    private const float lifetimeOfBlast = 0.5f;
     private int potionsCounter = 0;
     
     public override void Attack(Vector3 mousePosition, GameObject projectilePrefab)
@@ -11,7 +12,7 @@ public class Witch : WitchState
         projectilePosition.z = 0;
 
         GameObject projectile = UnityEngine.Object.Instantiate(projectilePrefab, projectilePosition, new Quaternion());
-        UnityEngine.Object.Destroy(projectile, projectile.GetComponent<WitchBlast>().clip.length);
+        UnityEngine.Object.Destroy(projectile, lifetimeOfBlast);
     }
 
     public override void PickUp(Vector3 playerPosition, float radius, LayerMask layerMask)
