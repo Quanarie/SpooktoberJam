@@ -355,6 +355,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4795640396624209331, guid: c4243abee41000e43958f8b7971abfca, type: 3}
+      propertyPath: chasingDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4795640396624209333, guid: c4243abee41000e43958f8b7971abfca, type: 3}
       propertyPath: m_Name
       value: Enemy

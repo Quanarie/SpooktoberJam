@@ -25,7 +25,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void Attack() => state.Attack();
+    public void Attack(Vector3 mousePosition, GameObject projectilePrefab) => state.Attack(mousePosition, projectilePrefab);
     public void PickUp() => state.PickUp(transform.position, .5f, 1 << LayerMask.NameToLayer("BaseItems"));
     public void Transform() => state.Transform();
 }

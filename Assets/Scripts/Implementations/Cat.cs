@@ -6,7 +6,7 @@ public class Cat : WitchState
 {
     private const float decreaseOfHealthCoefficient = 0.1f;
 
-    public override void Attack()
+    public override void Attack(Vector3 mousePosition, GameObject projectilePrefab)
     {
         EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusClaw);
         if (enemy == null)

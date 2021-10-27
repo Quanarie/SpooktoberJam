@@ -147,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 7685072211529872880}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7901bcf5b655a844daeddcfc1c7a6778, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03d0ed30d9dce8744b63699d8adbc3c0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,10 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rechargeTime: 1
+  projectilePrefab: {fileID: 3927866538787068753, guid: affb25e8d677f4947a761eb65809b274, type: 3}
   damageAmountClaw: 10
-  damageAmountBlast: 2
   attackRadiusClaw: 0.5
-  attackRadiusBlast: 2
   attackPoint: {x: 0, y: 0, z: 0}
   pushForce: 0
 --- !u!1 &7685072212310583304

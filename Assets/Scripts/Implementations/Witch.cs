@@ -5,19 +5,13 @@ public class Witch : WitchState
 {
     private int potionsCounter = 0;
     
-    public override void Attack()
+    public override void Attack(Vector3 mousePosition, GameObject projectilePrefab)
     {
-        EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusBlast);
+        Vector3 projectilePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        projectilePosition.z = 0;
 
-        float playerPositionX = GameManager.Instance.player.transform.position.x;
-        float playerLocalScaleX = GameManager.Instance.player.transform.localScale.x;
-
-        if (enemy == null || enemy.transform.position.x * playerLocalScaleX < playerPositionX * playerLocalScaleX)
-            return;
-
-        enemy.ReceiveDamage(GameManager.Instance.playerAttack.damageAmountBlast,
-                            enemy.transform.position - GameManager.Instance.player.transform.position,
-                            GameManager.Instance.playerAttack.pushForce);
+        GameObject projectile = UnityEngine.Object.Instantiate(projectilePrefab, projectilePosition, new Quaternion());
+        UnityEngine.Object.Destroy(projectile, projectile.GetComponent<WitchBlast>().clip.length);
     }
 
     public override void PickUp(Vector3 playerPosition, float radius, LayerMask layerMask)

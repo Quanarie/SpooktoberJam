@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class WitchState
 {
-    public abstract void Attack();
+    public abstract void Attack(Vector3 mousePosition, GameObject projectilePrefab);
     public abstract void PickUp(Vector3 center, float radius, LayerMask layerMask);
     public abstract void Transform();
     public abstract void ChangeState();
