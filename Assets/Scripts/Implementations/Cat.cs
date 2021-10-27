@@ -6,15 +6,13 @@ public class Cat : WitchState
 {
     private const float decreaseOfHealthCoefficient = 0.1f;
 
-    public override void Attack(Vector3 mousePosition, GameObject projectilePrefab)
+    public override void Attack(Vector3 mousePosition)
     {
-        EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusClaw);
-        if (enemy == null)
-            return;
+        Vector3 fireballDirection = Camera.main.ScreenToWorldPoint(mousePosition) - GameManager.Instance.player.transform.position;
+        fireballDirection.z = 0;
 
-        enemy.ReceiveDamage(GameManager.Instance.playerAttack.damageAmountClaw,
-                            enemy.transform.position - GameManager.Instance.player.transform.position,
-                            GameManager.Instance.playerAttack.pushForce);
+        GameObject fireball = UnityEngine.Object.Instantiate(GameManager.Instance.playerAttack.fireballPrefab, GameManager.Instance.player.transform.position, new Quaternion());
+        fireball.GetComponent<CatFireball>().direction = fireballDirection;
 
         GameManager.Instance.playerHealth.ReceiveDamage(GameManager.Instance.playerHealth.GetMaxHp() * decreaseOfHealthCoefficient, Vector3.zero, 0f);
     }

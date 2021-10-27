@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WitchBlast : AttackAbility
+public class CatFireball : AttackAbility
 {
-    public AnimationClip clip;
+    [HideInInspector] public Vector3 direction;
+    public float speed;
+
+    private void Update()
+    {
+        transform.Translate(direction.normalized * speed * Time.deltaTime);
+        if (direction.magnitude > 0) print(direction.normalized);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

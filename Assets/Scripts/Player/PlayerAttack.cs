@@ -5,14 +5,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float rechargeTime;
-    [SerializeField] private GameObject projectilePrefab;
+    public GameObject projectilePrefab;
+    public GameObject fireballPrefab;
 
     private Animator animator;
 
-    public float damageAmountClaw;
-    public float attackRadiusClaw;
     public Vector3 attackPoint;
-    public float pushForce;
 
     private float previousAttack = 0;
 
@@ -27,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                GameManager.Instance.playerInteraction.Attack(Input.mousePosition, projectilePrefab);
+                GameManager.Instance.playerInteraction.Attack(Input.mousePosition);
 
                 previousAttack = Time.time;
 

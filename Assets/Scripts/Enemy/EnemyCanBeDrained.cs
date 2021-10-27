@@ -39,6 +39,9 @@ public class EnemyCanBeDrained : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GameManager.Instance.playerAnimator.SetBool("isDraining", false);
+        if (collision.TryGetComponent(out PlayerHealth _))
+        {
+            GameManager.Instance.playerAnimator.SetBool("isDraining", false);
+        }
     }
 }
