@@ -123,8 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010c82a287c06a74c85563f2a40bf9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushRecoverySpeed: 0
+  ySpeed: 0
+  xSpeed: 0
+  pushDirection: {x: 0, y: 0, z: 0}
   damageAmount: 1
-  pushForce: 2
+  pushForce: 5
   clip: {fileID: 7400000, guid: b16abd9f19c610c428f8b24c3eda346e, type: 2}
 --- !u!95 &6605094077730700858
 Animator:

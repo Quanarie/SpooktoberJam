@@ -31,6 +31,7 @@ public abstract class Mover : MonoBehaviour
         }
 
         moveDelta += pushDirection;
+
         pushDirection = Vector3.Lerp(pushDirection, Vector3.zero, pushRecoverySpeed);
 
         transform.Translate(moveDelta.x * Time.deltaTime, moveDelta.y * Time.deltaTime, 0);

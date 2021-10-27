@@ -14,7 +14,7 @@ public class WitchBlast : MonoBehaviour
     {
         if (collision.TryGetComponent(out enemyHealthComponent))
         {
-            enemyHealthComponent.ReceiveDamage(damageAmount, collision.transform.position - GameManager.Instance.player.transform.position, pushForce);
+            enemyHealthComponent.ReceiveDamage(damageAmount, collision.transform.position - transform.position, pushForce);
         }
     }
 }
