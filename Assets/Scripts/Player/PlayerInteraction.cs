@@ -19,10 +19,12 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.T))
+        {
             PickUp();
+        }
     }
 
     public void Attack() => state.Attack();
-    public void PickUp() => state.PickUp(transform.position, .5f, LayerMask.NameToLayer("BaseItems"));
+    public void PickUp() => state.PickUp(transform.position, .5f, 1 << LayerMask.NameToLayer("BaseItems"));
     public void Transform() => state.Transform();
 }

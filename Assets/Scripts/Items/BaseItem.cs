@@ -7,5 +7,5 @@ public abstract class BaseItem : MonoBehaviour
     private string _name;
     private int _id;
 
-    public virtual void DestroySelf() => Destroy(this.gameObject);
+    public virtual void DestroySelf() => Destroy(gameObject);
 }

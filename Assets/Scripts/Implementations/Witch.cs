@@ -8,7 +8,11 @@ public class Witch : WitchState
     public override void Attack()
     {
         EnemyHealth enemy = FindClosestEnemyInAttackRange(GameManager.Instance.playerAttack.attackRadiusBlast);
-        if (enemy == null)
+
+        float playerPositionX = GameManager.Instance.player.transform.position.x;
+        float playerLocalScaleX = GameManager.Instance.player.transform.localScale.x;
+
+        if (enemy == null || enemy.transform.position.x * playerLocalScaleX < playerPositionX * playerLocalScaleX)
             return;
 
         enemy.ReceiveDamage(GameManager.Instance.playerAttack.damageAmountBlast,
