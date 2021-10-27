@@ -9,8 +9,7 @@ public class CatFireball : AttackAbility
 
     private void Update()
     {
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
-        if (direction.magnitude > 0) print(direction.normalized);
+        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

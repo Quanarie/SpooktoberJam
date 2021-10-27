@@ -11,8 +11,15 @@ public class Cat : WitchState
         Vector3 fireballDirection = Camera.main.ScreenToWorldPoint(mousePosition) - GameManager.Instance.player.transform.position;
         fireballDirection.z = 0;
 
+        Vector3 mDir = fireballDirection;
+        Vector3 fDir = Vector3.right;
+
+        float angleBetweenMouseAndFireballDirections = Mathf.Acos((mDir.x * fDir.x + mDir.y * fDir.y + mDir.z * fDir.z) / (mDir.magnitude * fDir.magnitude)) * 180 / Mathf.PI;
+        if (mDir.y < GameManager.Instance.player.transform.position.y) angleBetweenMouseAndFireballDirections *= -1;
+
         GameObject fireball = UnityEngine.Object.Instantiate(GameManager.Instance.playerAttack.fireballPrefab, GameManager.Instance.player.transform.position, new Quaternion());
         fireball.GetComponent<CatFireball>().direction = fireballDirection;
+        fireball.transform.rotation = Quaternion.Euler(0f, 0f, angleBetweenMouseAndFireballDirections);
 
         GameManager.Instance.playerHealth.ReceiveDamage(GameManager.Instance.playerHealth.GetMaxHp() * decreaseOfHealthCoefficient, Vector3.zero, 0f);
     }

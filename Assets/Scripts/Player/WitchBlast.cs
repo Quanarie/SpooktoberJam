@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WitchBlast : AttackAbility
 {
-    public AnimationClip clip;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out enemyHealthComponent))

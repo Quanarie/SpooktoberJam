@@ -74,7 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 1
   pushForce: 5
-  clip: {fileID: 7400000, guid: b16abd9f19c610c428f8b24c3eda346e, type: 2}
+  lifetimeOfBlast: 0.3
+  clip: {fileID: 0}
 --- !u!120 &880272049
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -124,7 +125,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.021569826
+        value: 0.011766054
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -132,8 +133,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.6979675
-        value: 0.010784913
+        time: 0.99591064
+        value: 0.009803772
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -196,9 +197,9 @@ MonoBehaviour:
   StartPosition: {x: 0, y: 0, z: 0}
   EndObject: {fileID: 3927866538787068753}
   EndPosition: {x: 0, y: 0, z: 0}
-  Generations: 6
-  Duration: 0.03
-  ChaosFactor: 0.269
+  Generations: 4
+  Duration: 0.08
+  ChaosFactor: 0.4
   ManualMode: 0
   Rows: 8
   Columns: 1
