@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Witch : WitchState
 {
-    private const float lifetimeOfBlast = 0.5f;
+    private const float lifetimeOfBlast = 0.3f;
+    private Vector3 offset = new Vector3(0, 0.15f, 0);
     private int potionsCounter = 0;
     
     public override void Attack(Vector3 mousePosition, GameObject projectilePrefab)
@@ -12,6 +13,7 @@ public class Witch : WitchState
         projectilePosition.z = 0;
 
         GameObject projectile = UnityEngine.Object.Instantiate(projectilePrefab, projectilePosition, new Quaternion());
+        projectile.GetComponent<DigitalRuby.LightningBolt.LightningBoltScript>().StartPosition = GameManager.Instance.player.transform.position + offset;
         UnityEngine.Object.Destroy(projectile, lifetimeOfBlast);
     }
 
