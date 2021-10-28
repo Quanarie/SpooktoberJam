@@ -5,29 +5,42 @@ using UnityEngine;
 public class EnemyMovement : Mover
 {
     [SerializeField] private float chasingDistance;
-
+    
+    private Animator _animator;
     private Vector3 startingPosition;
 
     private void Start()
     {
         startingPosition = transform.position;
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) < GetComponent<EnemyAttack>().attackDistance)
         {
+            // Enemy starts attacking
             UpdateMotor(Vector3.zero);
+            _animator.SetBool("isMoving", false);
+            _animator.SetTrigger("attacking");
             return;
         }
 
         if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) < chasingDistance)
         {
+            // Enemy starts chasing enemy
             UpdateMotor((GameManager.Instance.player.transform.position - transform.position).normalized);
+            _animator.SetBool("isMoving", true);
         }
         else if (Vector3.Distance(startingPosition, transform.position) < 0.01f)
         {
+            // Enemy ??
             UpdateMotor((startingPosition - transform.position).normalized);
+        }
+        else
+        {
+            // Player is out of enemy's chasing range and enemy is idle
+            _animator.SetBool("isMoving", false);
         }
     }
 }

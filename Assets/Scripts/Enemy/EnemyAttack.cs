@@ -15,13 +15,18 @@ public class EnemyAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time - previousAttack >= rechargeTime)
-        {
             if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackDistance)
-            {
-                Attack();
                 previousAttack = Time.time;
-            }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Debug.Log("Player is in collision");
+            Attack();
         }
+        
     }
 
     private void Attack()
