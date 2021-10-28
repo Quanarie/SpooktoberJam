@@ -8,7 +8,7 @@ public class UIBindingScript : MonoBehaviour
 
     private bool _isActive = false;
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
