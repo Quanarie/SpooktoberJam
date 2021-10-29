@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerInteraction playerInteraction;
     public PlayerAttack playerAttack;
     public PlayerHealth playerHealth;
+    public HealthBar playerHealthBar;
     public Animator playerAnimator;
     public RuntimeAnimatorController witchAnimator;
     public RuntimeAnimatorController catAnimator;
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-
+        
         playerInteraction = player.GetComponent<PlayerInteraction>();
         playerAttack = player.GetComponent<PlayerAttack>();
         playerHealth = player.GetComponent<PlayerHealth>();
