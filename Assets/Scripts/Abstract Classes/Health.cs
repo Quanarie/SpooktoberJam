@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected float maxHp;
+    [SerializeField] protected HealthBar _healthBar;
 
     protected float currentHp;
 
@@ -19,7 +20,7 @@ public abstract class Health : MonoBehaviour
     public void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce)
     {
         GetComponent<Mover>().pushDirection = pushDirection.normalized * pushForce;
-
+        _healthBar.SubstractHealthbarValue(damage);
         currentHp -= damage;
         if (currentHp <= 0)
         {
