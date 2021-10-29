@@ -16,11 +16,9 @@ public class PlayerMovement : Mover
         if (x != 0 || y != 0)
         {
             animator.SetBool("isRunning", true);
-            animator.SetBool("isIdle", false);
         }
         else
         {
-            animator.SetBool("isIdle", true);
             animator.SetBool("isRunning", false);
         }
     }

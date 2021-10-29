@@ -20,7 +20,7 @@ public abstract class Health : MonoBehaviour
     public void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce)
     {
         GetComponent<Mover>().pushDirection = pushDirection.normalized * pushForce;
-        _healthBar.SubstractHealthbarValue(damage);
+        //_healthBar.SubstractHealthbarValue(damage);
         currentHp -= damage;
         if (currentHp <= 0)
         {
