@@ -6,6 +6,8 @@ public class PlayerInteraction : MonoBehaviour
 {
     public WitchState state;
 
+    public int potionsCounter;
+
     private void Start()
     {
         state = new Witch();

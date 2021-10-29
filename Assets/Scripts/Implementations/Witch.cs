@@ -4,8 +4,7 @@ using UnityEngine;
 public class Witch : WitchState
 {
     private Vector3 offset = new Vector3(0, 0.15f, 0);
-    private int potionsCounter = 0;
-    
+
     public override void Attack(Vector3 mousePosition)
     {
         Vector3 projectilePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -32,7 +31,7 @@ public class Witch : WitchState
         }
 
         items[nearestItemIndex].GetComponent<BaseItem>().DestroySelf();
-        potionsCounter++;
+        GameManager.Instance.playerInteraction.potionsCounter++;
     }
 
     public override void Transform()
