@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected float maxHp;
-    //[SerializeField] protected HealthBar ;
 
     protected float currentHp;
 
