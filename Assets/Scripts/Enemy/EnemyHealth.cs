@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
+    private const float coefficientToRegen = 0.1f;
+
     protected override void Death()
     {
         //GetComponent<SpriteRenderer>().color = Color.grey;
         GetComponent<EnemyAttack>().enabled = false;
         GetComponent<EnemyMovement>().enabled = false;
         GetComponent<EnemyHealth>().enabled = false;
-        GetComponent<Animator>().SetTrigger("dying");
+        GetComponent<Animator>().SetTrigger("death");
+        GetComponent<Animator>().SetBool("isDead", true);
 
 
         gameObject.AddComponent(typeof(EnemyCanBeDrained));
-        GetComponent<EnemyCanBeDrained>().healthToHeal = GetComponent<EnemyHealth>().GetMaxHp() * 0.1f;
+        GetComponent<EnemyCanBeDrained>().healthToHeal = GameManager.Instance.playerHealth.GetMaxHp() * coefficientToRegen;
     }
 }

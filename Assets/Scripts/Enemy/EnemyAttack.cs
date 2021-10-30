@@ -20,9 +20,11 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.GetComponent<Rigidbody2D>().WakeUp();
+        if (animator.GetBool("isDead"))
+            return;
         if (collision.TryGetComponent(out PlayerHealth _))
         {
+            collision.GetComponent<Rigidbody2D>().WakeUp();
             if (Time.time - previousAttack >= rechargeTime)
             {
                 if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackDistance)
@@ -33,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
                     previousAttack = Time.time;
                 }
             }
-                
+
         }
     }
 

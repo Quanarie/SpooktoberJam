@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2728ee96fd72567449b2e2d9025937db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 5
+  damageAmount: 8
   pushForce: 5
-  lifetimeOfBlast: 30
-  clip: {fileID: 0}
+  lifetimeOfBlast: 1
+  clip: {fileID: 7400000, guid: 991f44cd0a2185d4e80755ace344640a, type: 2}
   direction: {x: 0, y: 0, z: 0}
   speed: 5
