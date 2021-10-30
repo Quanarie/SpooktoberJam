@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public HomeEnter homeEnter;
+
     private void Awake()
     {
         if (Instance != null)

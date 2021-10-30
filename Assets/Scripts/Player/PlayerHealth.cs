@@ -34,7 +34,7 @@ public class PlayerHealth : Health
     protected override void Death()
     {
         GameManager.Instance.playerAnimator.SetBool("isDead", true);
-        //StartCoroutine(WaitForDeathAnimationToEnd());
+        StartCoroutine(WaitForDeathAnimationToEnd());
     }
 
     IEnumerator WaitForDeathAnimationToEnd()

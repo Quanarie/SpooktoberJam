@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
+
     private const float coefficientToRegen = 0.1f;
     private const float timeTakingDamage = 1f;
     private SpriteRenderer spriteRenderer;

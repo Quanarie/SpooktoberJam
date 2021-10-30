@@ -21,10 +21,9 @@ public class PlayerInteraction : MonoBehaviour
             state.ChangeState();
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             PickUp();
-
         }
     }
 
