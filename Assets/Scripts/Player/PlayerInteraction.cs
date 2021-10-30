@@ -7,14 +7,19 @@ public class PlayerInteraction : MonoBehaviour
 {
     public WitchState state;
 
-    [SerializeField] private Text pressE;
+    //[SerializeField] private Text pressE;
+    [SerializeField]
+    private Image pressE;
 
     public int potionsCounter;
+
+    GameObject popup;
 
     private void Start()
     {
         state = new Witch();
         GameManager.Instance.playerAnimator.runtimeAnimatorController = GameManager.Instance.witchAnimator;
+        popup = transform.Find("Popup").gameObject;
     }
 
     private void Update()
@@ -35,17 +40,21 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out BaseItem _))
+        if (collision.TryGetComponent(out BaseItem item))
         {
-            pressE.text = "press E to interact";
+            //pressE.text = "press E to interact";
+            popup.SetActive(true);
+            popup.transform.Find(item.name).gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out BaseItem _))
+        if (collision.TryGetComponent(out BaseItem item))
         {
-            pressE.text = "";
+            //pressE.text = "";
+            popup.SetActive(false);
+            popup.transform.Find(item.name).gameObject.SetActive(false);
         }
     }
 }
