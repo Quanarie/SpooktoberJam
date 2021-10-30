@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 29925385353505481}
   - component: {fileID: 8661606632671525704}
   - component: {fileID: 8019340215230106761}
+  - component: {fileID: -8250620135640599957}
   m_Layer: 0
   m_Name: Canny
   m_TagString: Untagged
@@ -137,7 +138,7 @@ MonoBehaviour:
   damageAmount: 5
   rechargeTime: 2
   pushForce: 1.2
-  attackDistance: 0.2
+  attackDistance: 0.5
 --- !u!114 &29925385353505481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +155,7 @@ MonoBehaviour:
   ySpeed: 6
   xSpeed: 6
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 7
+  chasingDistance: 2
 --- !u!61 &8661606632671525704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,10 +166,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.021443367, y: 0.0038987994}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.5815182, y: 0.6477976}
   m_EdgeRadius: 0
 --- !u!95 &8019340215230106761
 Animator:
@@ -200,3 +201,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &-8250620135640599957
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29925385353505487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.015, y: -0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
