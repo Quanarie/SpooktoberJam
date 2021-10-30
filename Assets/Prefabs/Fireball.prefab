@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 8
   pushForce: 5
-  lifetimeOfBlast: 1
+  lifetimeOfBlast: 2
   clip: {fileID: 7400000, guid: 991f44cd0a2185d4e80755ace344640a, type: 2}
   direction: {x: 0, y: 0, z: 0}
-  speed: 5
+  speed: 10

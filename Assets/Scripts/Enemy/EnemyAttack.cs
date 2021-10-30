@@ -22,6 +22,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (animator.GetBool("isDead"))
             return;
+
         if (collision.TryGetComponent(out PlayerHealth _))
         {
             collision.GetComponent<Rigidbody2D>().WakeUp();
@@ -29,8 +30,6 @@ public class EnemyAttack : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackDistance)
                 {
-                    animator.SetTrigger("attacking");
-
                     Attack();
                     previousAttack = Time.time;
                 }
@@ -42,5 +41,7 @@ public class EnemyAttack : MonoBehaviour
     private void Attack()
     {
         GameManager.Instance.playerHealth.ReceiveDamage(damageAmount, GameManager.Instance.player.transform.position - transform.position, pushForce, GameManager.Instance.playerHealthBar);
+        
+        animator.SetTrigger("attack");
     }
 }

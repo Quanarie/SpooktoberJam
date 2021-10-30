@@ -25,6 +25,5 @@ public class UIBindingScript : MonoBehaviour
                 GameManager.Instance.playerAttack.enabled = true;
             }
         }
-            
     }
 }

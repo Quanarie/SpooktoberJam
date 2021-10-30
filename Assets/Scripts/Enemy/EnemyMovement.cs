@@ -21,7 +21,7 @@ public class EnemyMovement : Mover
         {
             // Enemy starts attacking
             UpdateMotor(Vector3.zero);
-            _animator.SetBool("isMoving", false);
+            _animator.SetBool("isRunning", false);
             return;
         }
 
@@ -29,7 +29,7 @@ public class EnemyMovement : Mover
         {
             // Enemy starts chasing enemy
             UpdateMotor((GameManager.Instance.player.transform.position - transform.position).normalized);
-            _animator.SetBool("isMoving", true);
+            _animator.SetBool("isRunning", true);
         }
         else if (Vector3.Distance(startingPosition, transform.position) < 0.01f)
         {
@@ -38,7 +38,7 @@ public class EnemyMovement : Mover
         else
         {
             // Player is out of enemy's chasing range and enemy is idle
-            _animator.SetBool("isMoving", false);
+            _animator.SetBool("isRunning", false);
         }
     }
 }

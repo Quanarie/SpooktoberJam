@@ -10,6 +10,9 @@ public class InGameMenuButtonsScript : MonoBehaviour
     public void ContinueGame()
     {
         _menuCanvas.gameObject.SetActive(false);
+
+        Time.timeScale = 1;
+        GameManager.Instance.playerAttack.enabled = true;
     }
 
     public void ExitGame()

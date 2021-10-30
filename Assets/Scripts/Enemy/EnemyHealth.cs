@@ -12,8 +12,8 @@ public class EnemyHealth : Health
         GetComponent<EnemyAttack>().enabled = false;
         GetComponent<EnemyMovement>().enabled = false;
         GetComponent<EnemyHealth>().enabled = false;
-        GetComponent<Animator>().SetTrigger("death");
         GetComponent<Animator>().SetBool("isDead", true);
+        GetComponent<Animator>().SetTrigger("death");
 
 
         gameObject.AddComponent(typeof(EnemyCanBeDrained));
