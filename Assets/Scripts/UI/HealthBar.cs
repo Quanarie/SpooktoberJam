@@ -15,17 +15,6 @@ public class HealthBar : MonoBehaviour
         _slider.value = _ownerHealth.GetMaxHp();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-            SetHealthbarValue(100);
-        if (Input.GetKeyDown(KeyCode.P))
-            AddHealthbarValue(10);
-        if (Input.GetKeyDown(KeyCode.L))
-            SubstractHealthbarValue(10);
-
-    }
-
     /// <summary>
     /// Sets the health bar value to value parameter
     /// </summary>

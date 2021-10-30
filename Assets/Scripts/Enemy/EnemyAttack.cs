@@ -11,18 +11,30 @@ public class EnemyAttack : MonoBehaviour
     public float attackDistance;
 
     private float previousAttack;
+    private Animator animator;
 
-    private void Update()
+    private void Start()
     {
-        if (Time.time - previousAttack >= rechargeTime)
-            if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackDistance)
-                previousAttack = Time.time;
+        animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            Attack();        
+        collision.GetComponent<Rigidbody2D>().WakeUp();
+        if (collision.TryGetComponent(out PlayerHealth _))
+        {
+            if (Time.time - previousAttack >= rechargeTime)
+            {
+                if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackDistance)
+                {
+                    animator.SetTrigger("attacking");
+
+                    Attack();
+                    previousAttack = Time.time;
+                }
+            }
+                
+        }
     }
 
     private void Attack()

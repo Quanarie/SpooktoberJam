@@ -22,7 +22,6 @@ public class EnemyMovement : Mover
             // Enemy starts attacking
             UpdateMotor(Vector3.zero);
             _animator.SetBool("isMoving", false);
-            _animator.SetTrigger("attacking");
             return;
         }
 
@@ -34,7 +33,6 @@ public class EnemyMovement : Mover
         }
         else if (Vector3.Distance(startingPosition, transform.position) < 0.01f)
         {
-            // Enemy ??
             UpdateMotor((startingPosition - transform.position).normalized);
         }
         else

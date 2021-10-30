@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected float maxHp;
+    [SerializeField] protected Slider healthSlider;
 
     protected float currentHp;
 
@@ -14,21 +16,23 @@ public abstract class Health : MonoBehaviour
     {
         currentHp = maxHp;
         animator = GetComponent<Animator>();
+
+        healthSlider.value = currentHp;
     }
 
     public void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce, HealthBar healthBar = null)
     {
-        if (healthBar != null)
-            healthBar.SubstractHealthbarValue(damage);
-
         GetComponent<Mover>().pushDirection = pushDirection.normalized * pushForce;
-        //_healthBar.SubstractHealthbarValue(damage);
+
         currentHp -= damage;
+
         if (currentHp <= 0)
         {
             currentHp = 0;
             Death();
         }
+
+        healthSlider.value = currentHp;
 
         if (animator != null)
             animator.SetTrigger("damage");
