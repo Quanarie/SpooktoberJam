@@ -21,7 +21,7 @@ public class EnemyHealth : Health
     {
         base.ReceiveDamage(damage, pushDirection, pushForce, healthBar);
 
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = Color.red;
 
         StartCoroutine(ChangeColorBack());
     }
