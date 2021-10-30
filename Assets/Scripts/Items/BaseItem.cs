@@ -8,7 +8,7 @@ public class BaseItem : MonoBehaviour
 
     public virtual void DestroySelf()
     {
-        if (name == "Flower")
+        /*if (name == "Flower")
         {
             GameManager.Instance.homeEnter.isFlowerPicked = true;
         }
@@ -35,7 +35,9 @@ public class BaseItem : MonoBehaviour
         else if (name == "Soul")
         {
             GameManager.Instance.homeEnter.souls++;
-        }
+        }*/
+
+        GameManager.Instance.homeEnter.IncrementIngredient(name);
 
         Destroy(gameObject);
     }

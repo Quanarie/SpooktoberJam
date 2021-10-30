@@ -11,18 +11,22 @@ public class HomeEnter : MonoBehaviour
 
     public bool isFlowerPicked;
     public bool isSpellPicked;
-    public int frogEyes;    //4
-    public int tongues;    //2
-    public int hair;    //4
-    public int hearts;    //1
-    public int souls;   //3
+    public int frogEyes;
+    public int maxFrogEyes;
+    public int tongues;
+    public int maxTongues;
+    public int hair;
+    public int maxHair;
+    public int hearts;
+    public int maxHearts;
+    public int souls;
+    public int maxSouls;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PlayerInteraction _))
         {
-            if (isFlowerPicked && isSpellPicked &&
-                frogEyes >= 4 && tongues >= 2 && hair >= 4 && hearts >= 1 && souls >= 3)
+            if (HasAllIngredients())
             {
                 endCanvas.SetActive(true);
                 StartCoroutine(endGame());
@@ -30,9 +34,48 @@ public class HomeEnter : MonoBehaviour
         }
     }
 
+    private bool HasAllIngredients()
+    {
+        return (isFlowerPicked && isSpellPicked &&
+                frogEyes >= maxFrogEyes && tongues >= maxTongues && hair >= maxHair && hearts >= maxHearts && souls >= maxSouls);
+    }
+
     IEnumerator endGame()
     {
+        //Should play a sound effect
         yield return new WaitForSeconds(timeForEnding);
         SceneManager.LoadScene(0);
+    }
+
+    public void IncrementIngredient(string ingredient)
+    {
+        if (ingredient == "Flower")
+        {
+            isFlowerPicked = true;
+        }
+        else if (ingredient == "Spell")
+        {
+            isSpellPicked = true;
+        }
+        else if (ingredient == "Eye")
+        {
+            ++frogEyes;
+        }
+        else if (ingredient == "Tongue")
+        {
+            ++tongues;
+        }
+        else if (ingredient == "Hair")
+        {
+            ++hair;
+        }
+        else if (ingredient == "Heart")
+        {
+            ++hearts;
+        }
+        else if (ingredient == "Soul")
+        {
+            ++souls;
+        }
     }
 }
