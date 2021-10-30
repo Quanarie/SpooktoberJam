@@ -15,9 +15,15 @@ public class UIBindingScript : MonoBehaviour
             _isActive = _inGameMenuCanvas.isActiveAndEnabled;
             _inGameMenuCanvas.gameObject.SetActive(!_isActive);
             if (!_isActive)
+            {
                 Time.timeScale = 0;
+                GameManager.Instance.playerAttack.enabled = false;
+            }
             else
+            {
                 Time.timeScale = 1;
+                GameManager.Instance.playerAttack.enabled = true;
+            }
         }
             
     }
