@@ -21,16 +21,12 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
-        {
-            Debug.Log("Player is in collision");
-            Attack();
-        }
-        
+        if (collision.CompareTag("Player"))
+            Attack();        
     }
 
     private void Attack()
     {
-        GameManager.Instance.playerHealth.ReceiveDamage(damageAmount, GameManager.Instance.player.transform.position - transform.position, pushForce);
+        GameManager.Instance.playerHealth.ReceiveDamage(damageAmount, GameManager.Instance.player.transform.position - transform.position, pushForce, GameManager.Instance.playerHealthBar);
     }
 }
