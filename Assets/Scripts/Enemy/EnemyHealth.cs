@@ -42,6 +42,7 @@ public class EnemyHealth : Health
         GetComponent<EnemyMovement>().enabled = false;
         GetComponent<EnemyHealth>().enabled = false;
         GetComponent<Animator>().SetBool("isDead", true);
+        GetComponent<Animator>().enabled = false;
         transform.localScale = new Vector3(transform.localScale.x/2, transform.localScale.y, transform.localScale.z);
         transform.eulerAngles = new Vector3(0, 0, 90);
 
