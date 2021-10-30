@@ -19,6 +19,9 @@ public class EnemyCanBeDrained : MonoBehaviour
                 currentClickTime += Time.deltaTime;
 
                 GameManager.Instance.playerAnimator.SetBool("isDraining", true);
+
+                GameManager.Instance.audioSource.clip = GameManager.Instance.energyDrain;
+                GameManager.Instance.audioSource.Play();
             }
             else
             {

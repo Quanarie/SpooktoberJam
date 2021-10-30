@@ -26,15 +26,12 @@ public class Cat : WitchState
 
     public override void PickUp(Vector3 center, float radius, LayerMask layerMask) { }
 
-
-    public override void Transform()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void ChangeState()
     {
         GameManager.Instance.playerInteraction.state = new Witch();
         GameManager.Instance.playerAnimator.runtimeAnimatorController = GameManager.Instance.witchAnimator;
+
+        GameManager.Instance.audioSource.clip = GameManager.Instance.TransformToWitch;
+        GameManager.Instance.audioSource.Play();
     }
 }

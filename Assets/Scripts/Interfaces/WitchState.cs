@@ -6,7 +6,6 @@ public abstract class WitchState
 {
     public abstract void Attack(Vector3 mousePosition);
     public abstract void PickUp(Vector3 center, float radius, LayerMask layerMask);
-    public abstract void Transform();
     public abstract void ChangeState();
 
     protected EnemyHealth FindClosestEnemyInAttackRange(float range)

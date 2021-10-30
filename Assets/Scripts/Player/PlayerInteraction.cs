@@ -24,10 +24,10 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             PickUp();
+
         }
     }
 
     public void Attack(Vector3 mousePosition) => state.Attack(mousePosition);
     public void PickUp() => state.PickUp(transform.position, .5f, 1 << LayerMask.NameToLayer("BaseItems"));
-    public void Transform() => state.Transform();
 }

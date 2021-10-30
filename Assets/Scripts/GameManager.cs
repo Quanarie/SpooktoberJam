@@ -9,13 +9,22 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject player;
-    public PlayerInteraction playerInteraction;
-    public PlayerAttack playerAttack;
-    public PlayerHealth playerHealth;
-    public HealthBar playerHealthBar;
-    public Animator playerAnimator;
-    public RuntimeAnimatorController witchAnimator;
-    public RuntimeAnimatorController catAnimator;
+
+    [HideInInspector] public PlayerInteraction playerInteraction;
+    [HideInInspector] public PlayerAttack playerAttack;
+    [HideInInspector] public PlayerHealth playerHealth;
+    [HideInInspector] public HealthBar playerHealthBar;
+    [HideInInspector] public Animator playerAnimator;
+    [HideInInspector] public RuntimeAnimatorController witchAnimator;
+    [HideInInspector] public RuntimeAnimatorController catAnimator;
+
+    public AudioClip energyDrain;
+    public AudioClip pickUp;
+    public AudioClip TransformToCat;
+    public AudioClip TransformToWitch;
+    public AudioClip lightningAttack;
+
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -30,5 +39,7 @@ public class GameManager : MonoBehaviour
         playerAttack = player.GetComponent<PlayerAttack>();
         playerHealth = player.GetComponent<PlayerHealth>();
         playerAnimator = player.GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 }

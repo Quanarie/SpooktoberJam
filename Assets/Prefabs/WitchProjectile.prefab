@@ -125,7 +125,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.1
+        value: 0.14901885
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -134,7 +134,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.08823395
+        value: 0.09803742
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
   EndObject: {fileID: 3927866538787068753}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 7
-  Duration: 0.03
-  ChaosFactor: 0.442
+  Duration: 0.047
+  ChaosFactor: 0.527
   ManualMode: 0
   Rows: 8
   Columns: 1

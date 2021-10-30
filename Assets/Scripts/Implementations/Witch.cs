@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Witch : WitchState
 {
-    private Vector3 offset = new Vector3(0, 0.15f, 0);
+    private Vector3 offset = new Vector3(0, 0.3f, 0);
 
     public override void Attack(Vector3 mousePosition)
     {
@@ -12,6 +12,9 @@ public class Witch : WitchState
 
         GameObject projectile = UnityEngine.Object.Instantiate(GameManager.Instance.playerAttack.projectilePrefab, projectilePosition, new Quaternion());
         projectile.GetComponent<DigitalRuby.LightningBolt.LightningBoltScript>().StartPosition = GameManager.Instance.player.transform.position + offset;
+
+        GameManager.Instance.audioSource.clip = GameManager.Instance.lightningAttack;
+        GameManager.Instance.audioSource.Play();
     }
 
     public override void PickUp(Vector3 playerPosition, float radius, LayerMask layerMask)
@@ -32,16 +35,17 @@ public class Witch : WitchState
 
         items[nearestItemIndex].GetComponent<BaseItem>().DestroySelf();
         GameManager.Instance.playerInteraction.potionsCounter++;
-    }
 
-    public override void Transform()
-    {
-        throw new System.NotImplementedException();
+        GameManager.Instance.audioSource.clip = GameManager.Instance.pickUp;
+        GameManager.Instance.audioSource.Play();
     }
 
     public override void ChangeState()
     {
         GameManager.Instance.playerInteraction.state = new Cat();
         GameManager.Instance.playerAnimator.runtimeAnimatorController = GameManager.Instance.catAnimator;
+
+        GameManager.Instance.audioSource.clip = GameManager.Instance.TransformToCat;
+        GameManager.Instance.audioSource.Play();
     }
 }
