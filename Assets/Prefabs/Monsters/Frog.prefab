@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd671d18f3d45f4e8436e0cdc62de46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 20
+  maxHp: 10
 --- !u!114 &4272695120128148876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   ySpeed: 1.5
   xSpeed: 1.5
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 2
+  chasingDistance: 5
 --- !u!95 &8774736223246507582
 Animator:
   serializedVersion: 3
