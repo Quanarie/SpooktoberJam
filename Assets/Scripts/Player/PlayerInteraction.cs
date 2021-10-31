@@ -10,6 +10,10 @@ public class PlayerInteraction : MonoBehaviour
     //[SerializeField] private Text pressE;
     [SerializeField]
     private Image pressE;
+    [SerializeField]
+    private float popupX;
+    [SerializeField]
+    private float popupY;
 
     public int potionsCounter;
 
@@ -32,6 +36,16 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             PickUp();
+        }
+        //Optimize if possible; haiving a new Vector every frame is not usually a good idea; only doing this because this is a tiny Game Jam game
+        popup.transform.localPosition = new Vector2(popupX, popupY);
+        /*
+         * Always make sure the x-value of the scale is positive
+         * Flip scale x-value if > 0
+        */
+        if (transform.localScale.x < 0)
+        {
+          //flip x-value of the scale  
         }
     }
 
