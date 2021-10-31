@@ -49,7 +49,6 @@ public class HomeEnter : MonoBehaviour
 
     public void IncrementIngredient(string ingredient)
     {
-        Debug.Log("ingredient: " + ingredient);
         if (ingredient == "Flower")
         {
             isFlowerPicked = true;

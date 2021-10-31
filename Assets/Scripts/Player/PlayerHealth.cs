@@ -22,12 +22,10 @@ public class PlayerHealth : Health
         base.ReceiveDamage(damage, pushDirection, pushForce, healthBar);
         if (GameManager.Instance.playerInteraction.state.ToString() == "Cat")
         {
-            print("Hurt cat");
             damageSounds[1].Play();
         }
         else
         {
-            print("Hurt Witch");
             damageSounds[0].Play();
         }
 

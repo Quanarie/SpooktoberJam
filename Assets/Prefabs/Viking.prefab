@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5935251782273567104}
   - component: {fileID: 5935251782273567105}
   - component: {fileID: 1041780853664659864}
+  - component: {fileID: 8261510031402270104}
   m_Layer: 0
   m_Name: Viking
   m_TagString: Untagged
@@ -100,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 5935251782273567109}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 190860b5531cb99488bda749d80a76b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -263,3 +264,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupObject: {fileID: 444772852794062581, guid: e29d067b0ac8999419a9681c3cecc4bc, type: 3}
   healthToHeal: 0
+--- !u!58 &8261510031402270104
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935251782273567109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.33}
+  serializedVersion: 2
+  m_Radius: 0.2
