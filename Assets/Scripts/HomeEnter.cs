@@ -33,7 +33,7 @@ public class HomeEnter : MonoBehaviour
         }
     }
 
-    private bool HasAllIngredients()
+    public bool HasAllIngredients()
     {
         return (isFlowerPicked && isSpellPicked &&
                 frogEyes >= maxFrogEyes && tongues >= maxTongues && hair >= maxHair && hearts >= maxHearts && souls >= maxSouls);

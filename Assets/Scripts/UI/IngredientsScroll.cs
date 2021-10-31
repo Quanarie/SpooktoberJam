@@ -22,6 +22,8 @@ public class IngredientsScroll : MonoBehaviour
     [SerializeField] Image flowerCrossedOut;
     [SerializeField] Image spellCrossedOut;
 
+    [SerializeField] Text finishedText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +110,10 @@ public class IngredientsScroll : MonoBehaviour
         {
             spellCrossedOut.gameObject.SetActive(true);
         }
-            
+           
+        if (GameManager.Instance.homeEnter.HasAllIngredients())
+        {
+            finishedText.gameObject.SetActive(true);
+        }
     }
 }
