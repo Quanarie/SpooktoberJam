@@ -18,7 +18,7 @@ public class EnemyCanBeDrained : MonoBehaviour
         GameManager.Instance.player.GetComponent<Rigidbody2D>().WakeUp();
         if (collision.TryGetComponent(out PlayerHealth _) && GameManager.Instance.playerInteraction.state.GetType() == typeof(Witch))
         {
-            if (Input.GetKey(KeyCode.Mouse1))
+            if (Input.GetKey(KeyCode.Mouse1) && GetComponent<EnemyHealth>().GetHp() <= 0)
             {
                 currentClickTime += Time.deltaTime;
 
