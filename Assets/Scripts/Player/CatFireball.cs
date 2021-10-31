@@ -9,6 +9,7 @@ public class CatFireball : AttackAbility
 
     private void Start()
     {
+        GameManager.Instance.audioSource.Stop();
         GameManager.Instance.audioSource.clip = GameManager.Instance.fireball;
         GameManager.Instance.audioSource.Play();
     }

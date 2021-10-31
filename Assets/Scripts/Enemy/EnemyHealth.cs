@@ -27,9 +27,6 @@ public class EnemyHealth : Health
 
         spriteRenderer.color = Color.red;
 
-        GameManager.Instance.audioSource.clip = GameManager.Instance.damageEnemy;
-        GameManager.Instance.audioSource.Play();
-
         StartCoroutine(ChangeColorBack());
     }
 
