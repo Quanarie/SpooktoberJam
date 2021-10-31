@@ -88,7 +88,7 @@ public class IngredientsScroll : MonoBehaviour
         if (GameManager.Instance.homeEnter.souls >= GameManager.Instance.homeEnter.maxSouls)
         {
             soulCount = GameManager.Instance.homeEnter.maxSouls;
-            zombieCrossedOut.gameObject.SetActive(true);
+            vikingCrossedOut.gameObject.SetActive(true);
         }
         else
         {
