@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public AudioClip TransformToCat;
     public AudioClip TransformToWitch;
     public AudioClip lightningAttack;
+    public AudioClip damageEnemy;
+    public AudioClip fireball;
 
     public AudioSource audioSource;
 

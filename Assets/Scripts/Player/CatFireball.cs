@@ -7,6 +7,12 @@ public class CatFireball : AttackAbility
     [HideInInspector] public Vector3 direction;
     public float speed;
 
+    private void Start()
+    {
+        GameManager.Instance.audioSource.clip = GameManager.Instance.fireball;
+        GameManager.Instance.audioSource.Play();
+    }
+
     private void Update()
     {
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
