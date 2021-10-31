@@ -8,16 +8,28 @@ public class PlayerHealth : Health
 {
     [SerializeField] private AnimationClip deathAnimation;
     [SerializeField] protected Slider healthSlider;
+    private AudioSource[] damageSounds;
 
     protected override void Start()
     {
         base.Start();
         healthSlider.value = currentHp;
+        damageSounds = GetComponents<AudioSource>();
     }
 
     public override void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce, HealthBar healthBar = null)
     {
         base.ReceiveDamage(damage, pushDirection, pushForce, healthBar);
+        if (GameManager.Instance.playerInteraction.state.ToString() == "Cat")
+        {
+            print("Hurt cat");
+            damageSounds[1].Play();
+        }
+        else
+        {
+            print("Hurt Witch");
+            damageSounds[0].Play();
+        }
 
         healthSlider.value = currentHp;
     }
