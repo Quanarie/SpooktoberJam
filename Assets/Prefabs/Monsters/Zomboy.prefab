@@ -156,7 +156,7 @@ MonoBehaviour:
   ySpeed: 3
   xSpeed: 3
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 12
+  chasingDistance: 10
 --- !u!61 &1692894108060117290
 BoxCollider2D:
   m_ObjectHideFlags: 0

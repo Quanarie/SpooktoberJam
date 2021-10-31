@@ -139,7 +139,7 @@ MonoBehaviour:
   damageAmount: 5
   rechargeTime: 2
   pushForce: 1
-  attackDistance: 0.5
+  attackDistance: 0.2
 --- !u!114 &4272695120128148879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRecoverySpeed: 0.2
-  ySpeed: 2
-  xSpeed: 2
+  ySpeed: 3
+  xSpeed: 3
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 5
+  chasingDistance: 20
 --- !u!95 &8774736223246507582
 Animator:
   serializedVersion: 3
