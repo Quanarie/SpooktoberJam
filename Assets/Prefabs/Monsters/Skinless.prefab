@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3066104782774150855}
   - component: {fileID: 3066104782774150854}
   - component: {fileID: -1481667253220034414}
+  - component: {fileID: 1674190366327051867}
   m_Layer: 0
   m_Name: Skinless
   m_TagString: Untagged
@@ -152,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRecoverySpeed: 0.2
-  ySpeed: 3
-  xSpeed: 3
+  ySpeed: 6
+  xSpeed: 6
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 2
+  chasingDistance: 9
 --- !u!58 &3066104782774150855
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,3 +218,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &1674190366327051867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494402673639062880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df030db318163243b47e0892caaa206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupObject: {fileID: 5688573371634783162, guid: 43582b57d6de3b848af39c861929d4d6, type: 3}
+  healthToHeal: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : Health
 {
@@ -9,6 +10,7 @@ public class EnemyHealth : Health
     private const float timeTakingDamage = 1f;
     private SpriteRenderer spriteRenderer;
     private Color color;
+    private EnemyCanBeDrained deathPickups;
 
     protected override void Start()
     {
@@ -16,6 +18,7 @@ public class EnemyHealth : Health
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         color = spriteRenderer.color;
+        deathPickups = GetComponent<EnemyCanBeDrained>();
     }
 
     public override void ReceiveDamage(float damage, Vector3 pushDirection, float pushForce, HealthBar healthBar = null)
@@ -46,8 +49,15 @@ public class EnemyHealth : Health
         transform.localScale = new Vector3(transform.localScale.x/2, transform.localScale.y, transform.localScale.z);
         transform.eulerAngles = new Vector3(0, 0, 90);
 
-
-        gameObject.AddComponent(typeof(EnemyCanBeDrained));
-        GetComponent<EnemyCanBeDrained>().healthToHeal = GameManager.Instance.playerHealth.GetMaxHp() * coefficientToRegen;
+        try
+        {
+            deathPickups.healthToHeal = GameManager.Instance.playerHealth.GetMaxHp() * coefficientToRegen;
+        }
+        catch (NullReferenceException e)
+        {
+            gameObject.AddComponent(typeof(EnemyCanBeDrained));
+            GetComponent<EnemyCanBeDrained>().healthToHeal = GameManager.Instance.playerHealth.GetMaxHp() * coefficientToRegen;
+        }
+        
     }
 }

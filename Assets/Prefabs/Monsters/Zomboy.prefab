@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1692894108060117290}
   - component: {fileID: 1692894108060117291}
   - component: {fileID: 5876728354954148198}
+  - component: {fileID: 6534684148110770902}
   m_Layer: 0
   m_Name: Zomboy
   m_TagString: Untagged
@@ -227,3 +228,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &6534684148110770902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007465649507465389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df030db318163243b47e0892caaa206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupObject: {fileID: 4993859086499281960, guid: dd34d62ed1be4354d997dc13c401f31f, type: 3}
+  healthToHeal: 0

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BaseItem : MonoBehaviour
 {
     [SerializeField] private new string name;
-    [SerializeField] private Text newItemText;
+    //[SerializeField] private Text newItemText;
 
     private const float timeToReadText = 2f;
 
@@ -24,6 +24,6 @@ public class BaseItem : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToReadText);
 
-        newItemText.text = "";
+        //newItemText.text = "";
     }
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5935251782273567107}
   - component: {fileID: 5935251782273567104}
   - component: {fileID: 5935251782273567105}
+  - component: {fileID: 1041780853664659864}
   m_Layer: 0
   m_Name: Viking
   m_TagString: Untagged
@@ -99,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 5935251782273567109}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8a5e1ac00493e5746b2e5ce292b99c47, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -215,7 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 20
-  healthSlider: {fileID: 0}
 --- !u!114 &5935251782273567104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +249,17 @@ MonoBehaviour:
   xSpeed: 7
   pushDirection: {x: 0, y: 0, z: 0}
   chasingDistance: 20
+--- !u!114 &1041780853664659864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935251782273567109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df030db318163243b47e0892caaa206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupObject: {fileID: 444772852794062581, guid: e29d067b0ac8999419a9681c3cecc4bc, type: 3}
+  healthToHeal: 0

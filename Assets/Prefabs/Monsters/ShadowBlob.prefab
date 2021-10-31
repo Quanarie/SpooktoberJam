@@ -152,10 +152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRecoverySpeed: 0.2
-  ySpeed: 4
-  xSpeed: 4
+  ySpeed: 5
+  xSpeed: 5
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 2
+  chasingDistance: 5
 --- !u!58 &4238991320314525189
 CircleCollider2D:
   m_ObjectHideFlags: 0

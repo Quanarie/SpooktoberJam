@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8286275449691821795}
   - component: {fileID: 5200865628224840603}
   - component: {fileID: -3326909318986046445}
+  - component: {fileID: 4855125145415956016}
   m_Layer: 0
   m_Name: Droopy
   m_TagString: Untagged
@@ -152,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRecoverySpeed: 0.2
-  ySpeed: 6
-  xSpeed: 6
+  ySpeed: 7
+  xSpeed: 7
   pushDirection: {x: 0, y: 0, z: 0}
-  chasingDistance: 2
+  chasingDistance: 9
 --- !u!58 &8286275449691821795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,3 +218,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &4855125145415956016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491215595187506500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df030db318163243b47e0892caaa206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupObject: {fileID: 2514150771825550055, guid: 984abb54d540ada4fb44817c72ae9fec, type: 3}
+  healthToHeal: 0
