@@ -40,7 +40,7 @@ public class IngredientsScroll : MonoBehaviour
         if (GameManager.Instance.homeEnter.frogEyes >= GameManager.Instance.homeEnter.maxFrogEyes)
         {
             frogCount = GameManager.Instance.homeEnter.maxFrogEyes;
-            frogCrossedOut.enabled = true;
+            frogCrossedOut.gameObject.SetActive(true);
         }
         else
         {
@@ -52,7 +52,7 @@ public class IngredientsScroll : MonoBehaviour
         if (GameManager.Instance.homeEnter.tongues >= GameManager.Instance.homeEnter.maxTongues)
         {
             skinlessCount = GameManager.Instance.homeEnter.maxTongues;
-            skinlessCrossedOut.enabled = true;
+            skinlessCrossedOut.gameObject.SetActive(true);
         }
         else
         {
@@ -64,7 +64,7 @@ public class IngredientsScroll : MonoBehaviour
         if (GameManager.Instance.homeEnter.hair >= GameManager.Instance.homeEnter.maxHair)
         {
             hairCount = GameManager.Instance.homeEnter.maxHair;
-            zombieCrossedOut.enabled = true;
+            zombieCrossedOut.gameObject.SetActive(true);
         }
         else
         {
@@ -76,7 +76,7 @@ public class IngredientsScroll : MonoBehaviour
         if (GameManager.Instance.homeEnter.hearts >= GameManager.Instance.homeEnter.maxHearts)
         {
             heartCount = GameManager.Instance.homeEnter.maxHearts;
-            zombieCrossedOut.enabled = true;
+            droopyCrossedOut.gameObject.SetActive(true);
         }
         else
         {
@@ -88,7 +88,7 @@ public class IngredientsScroll : MonoBehaviour
         if (GameManager.Instance.homeEnter.souls >= GameManager.Instance.homeEnter.maxSouls)
         {
             soulCount = GameManager.Instance.homeEnter.maxSouls;
-            zombieCrossedOut.enabled = true;
+            zombieCrossedOut.gameObject.SetActive(true);
         }
         else
         {
@@ -99,14 +99,14 @@ public class IngredientsScroll : MonoBehaviour
         flowerText.text = "The Eternal Flower. I think there's one somewhere in the village. The old man used to say it was \"a pink flower surrounded by other beautiful plants\". I wonder if it's still there...";
         if (GameManager.Instance.homeEnter.isFlowerPicked)
         {
-            flowerCrossedOut.enabled = true;
+            flowerCrossedOut.gameObject.SetActive(true);
         }
             
         
         spellText.text = "The Curse Reverse Spell. Legend says the original scholars wrote the instructions in their rune language, and that they would glow blue should the time come that others would need to use it again";
         if (GameManager.Instance.homeEnter.isSpellPicked)
         {
-            spellCrossedOut.enabled = true;
+            spellCrossedOut.gameObject.SetActive(true);
         }
             
     }

@@ -28,7 +28,6 @@ public class HomeEnter : MonoBehaviour
         {
             if (HasAllIngredients())
             {
-                endCanvas.SetActive(true);
                 StartCoroutine(endGame());
             }
         }
@@ -44,7 +43,7 @@ public class HomeEnter : MonoBehaviour
     {
         //Should play a sound effect
         yield return new WaitForSeconds(timeForEnding);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     public void IncrementIngredient(string ingredient)
