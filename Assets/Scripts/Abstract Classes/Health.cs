@@ -36,5 +36,7 @@ public abstract class Health : MonoBehaviour
 
     public float GetMaxHp() => maxHp;
 
+    public float GetHp() => currentHp;
+
     protected virtual void Death() { }
 }
