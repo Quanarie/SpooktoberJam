@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cat : WitchState
 {
-    private const float decreaseOfHealthCoefficient = 0.1f;
+    private const float decreaseOfHealthCoefficient = 0.2f;
 
     public override void Attack(Vector3 mousePosition)
     {

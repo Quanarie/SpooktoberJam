@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010c82a287c06a74c85563f2a40bf9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  damageAmount: 2
   pushForce: 5
   lifetimeOfBlast: 0.3
   clip: {fileID: 0}
